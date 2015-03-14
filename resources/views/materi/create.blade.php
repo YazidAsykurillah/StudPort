@@ -1,15 +1,17 @@
 @extends('layouts.master')
 
 @section('pageTitle')
-	Kuis
+	
+	Materi
+
 @endsection
 
 @section('breadcrumb')
 	
 	<ol class="breadcrumb">
 		<li><a href="{{ URL::to('home') }}">Home</a></li>
-		<li><a href="{{ URL::to('kuis') }}">Kuis</a></li>
-		<li class="active">Buat kuis</li>
+		<li><a href="{{ URL::to('materi') }}">Materi</a></li>
+		<li class="active">Buat Materi</li>
 	</ol>
 	
 @endsection
@@ -21,33 +23,35 @@
 		<div class="col-md-12">
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					Edit {{ $kuis->title }}
+					<h3 class="panel-title">Buat Materi</h3>
 				</div>
 				<div class="panel-body">
-					{!! Form::model($kuis,['route'=>['kuis.update',$kuis->id], 'method'=>'PATCH', 'class'=>'form-horizontal']) !!}
+					{!! Form::open(['route'=>'materi.store', 'class'=>'form form-horizontal', 'role-form', 'files'=>true]) !!}
 						<div class="form-group {{$errors->has('title')? 'has-error' : '' }}">
-							<label class="col-md-4 control-label">Nama kuis</label>
+							<label class="col-md-4 control-label">Judul Materi</label>
 							<div class="col-md-6">
 								{!! Form::text('title',null,['class'=>'form-control']) !!}
 								{!! $errors->first('title', '<span class="help-block">:message</span>') !!}
 							</div>
 						</div>
-						<div class="form-group {{$errors->has('objectives')? 'has-error' : '' }}">
-							<label class="col-md-4 control-label">Keterangan</label>
+						<div class="form-group {{$errors->has('file')? 'has-error' : '' }}">
+							<label class="col-md-4 control-label">File</label>
 							<div class="col-md-6">
-								{!! Form::textarea('objectives',null,['class'=>'form-control']) !!}
-								{!! $errors->first('objectives', '<span class="help-block">:message</span>') !!}
+								{!! Form::file('file',null,['class'=>'form-control']) !!}
+								{!! $errors->first('file', '<span class="help-block">:message</span>') !!}
 							</div>
 						</div>
-						<div class="form-group">
+						<div class="form-group}}">
 							<label class="col-md-4 control-label"></label>
 							<div class="col-md-6">
 								<button type="submit" class="btn btn-primary">
-									<i class="glyphicon glyphicon-save"></i>&nbsp;Simpan
+									Upload
 								</button>
 							</div>
 						</div>
+
 					{!! Form::close() !!}
+
 				</div>
 			</div>
 		</div>
@@ -58,6 +62,6 @@
 @section('necessaryScripts')
 	<script type="text/javascript">
 		
-
+		
 	</script>
 @endsection

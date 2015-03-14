@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateKuisTable extends Migration {
+class CreateMaterisTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,13 +12,11 @@ class CreateKuisTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('kuis', function(Blueprint $table)
+		Schema::create('materi', function(Blueprint $table)
 		{
 			$table->increments('id');
 			$table->string('title');
-			$table->text('objectives');
-			$table->integer('timer')->default(60);
-			$table->boolean('displaying')->default(1);
+			$table->string('file');
 			$table->timestamps();
 		});
 	}
@@ -30,7 +28,7 @@ class CreateKuisTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('kuis');
+		Schema::drop('materi');
 	}
 
 }

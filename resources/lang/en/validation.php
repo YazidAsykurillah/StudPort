@@ -93,10 +93,13 @@ return [
 			'required' => 'Tidak boleh kosong'
 		],
 		'title'=>[
-			'required' => "Tidak boleh kosong"
+			'required' => "Judul tidak boleh kosong"
 		],
 		'objectives'=>[
-			'required'=>"Tidak boleh kosong"
+			'required'=>"Objektif idak boleh kosong"
+		],
+		'tools'=>[
+			'required'=>'Alat dan bahan tidak boleh kosong'
 		]
 	],
 

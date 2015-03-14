@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('pageTitle')
+	Dashboard
+@endsection
+
 @section('content')
 <div class="container">
 	<div class="jumbotron">

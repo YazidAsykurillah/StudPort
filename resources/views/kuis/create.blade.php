@@ -1,5 +1,8 @@
 @extends('layouts.master')
 
+@section('pageTitle')
+	Kuis
+@endsection
 
 @section('breadcrumb')
 	

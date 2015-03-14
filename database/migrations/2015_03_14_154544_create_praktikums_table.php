@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateKuisTable extends Migration {
+class CreatePraktikumsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,13 +12,14 @@ class CreateKuisTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('kuis', function(Blueprint $table)
+		Schema::create('praktikum', function(Blueprint $table)
 		{
 			$table->increments('id');
+			$table->integer('materi_id')->nullable();
 			$table->string('title');
-			$table->text('objectives');
-			$table->integer('timer')->default(60);
-			$table->boolean('displaying')->default(1);
+			$table->text('tools');
+			$table->text('steps');
+			$table->string('files')->nullable();
 			$table->timestamps();
 		});
 	}
@@ -30,7 +31,7 @@ class CreateKuisTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('kuis');
+		Schema::drop('praktikum');
 	}
 
 }

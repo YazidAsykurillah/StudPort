@@ -23,8 +23,8 @@ Route::group(['middleware'=>'auth'], function(){
 	Route::resource('kelas','KelasController');
 	Route::resource('user','UserController');
 	Route::resource('soal','SoalController');
-
-	
+	Route::resource('materi','MateriController');
+	Route::resource('praktikum','PraktikumController');
 
 	Route::resource('charts','ChartsController');
 	
@@ -40,9 +40,23 @@ Route::controllers([
 
 Route::post('test', array('uses'=>'KelasController@destroy'));
 
+//Hapus siswa
 Route::get('hapusSiswa', ['uses'=>'UserController@hapusSiswa']);
+
+//Hapus kuis
 Route::get('hapusKuis', ['uses'=>'KuisController@hapusKuis']);
+
+//Hapus Materi
+Route::get('hapusMat', ['uses'=>'MateriController@hapusMat']);
+
+//Hapus Praktikum
+Route::get('hapusPrak', ['uses'=>'PraktikumController@hapusPrak']);
+
+//Buat soal
 Route::get('createSoal/{idK}', ['uses'=>'SoalController@createSoal']);
+
+
+Route::get('downloadMateri/{idMateri}',['uses'=>'MateriController@downloadFile']);
 
 Route::get('dataTest', function(){
 	return response()->json(['name' => 'Abigail', 'state' => 'CA']);
