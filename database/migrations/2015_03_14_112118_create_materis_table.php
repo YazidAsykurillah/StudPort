@@ -16,6 +16,7 @@ class CreateMaterisTable extends Migration {
 		{
 			$table->increments('id');
 			$table->string('title');
+			$table->text('preface');
 			$table->string('file');
 			$table->timestamps();
 		});

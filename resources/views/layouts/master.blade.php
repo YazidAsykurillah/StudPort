@@ -65,10 +65,10 @@
 				          	</a>
 				          	<ul class="dropdown-menu" role="menu">		          		
 				            	<li>
-				            		<a href="{{ URL::to('auth/logout') }}"><i class="glyphicon glyphicon-log-out"></i> Log Out</a>
+				            		<a href="#"><i class="glyphicon glyphicon-cog"></i>&nbsp;Edit Profil</a>
 				            	</li>
 				            	<li>
-				            		<a href="#"><i class="glyphicon glyphicon-cog"></i>&nbsp;Edit Profil</a>
+				            		<a href="{{ URL::to('auth/logout') }}"><i class="glyphicon glyphicon-log-out"></i> Log Out</a>
 				            	</li>
 				          	</ul>
 				        </li>

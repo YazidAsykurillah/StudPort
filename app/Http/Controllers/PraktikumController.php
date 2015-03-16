@@ -32,6 +32,9 @@ class PraktikumController extends Controller {
 	{
 		
 		$opsiMateri = Materi::lists('title', 'id');
+		if(count($opsiMateri) ==0){
+			$opsiMateri = [''=>'Belum ada materi yang bisa ditampilkan'];
+		}
 		return View('praktikum.create')->with('opsiMateri', $opsiMateri);
 	}
 
@@ -121,7 +124,7 @@ class PraktikumController extends Controller {
 				'materi_id'=>'integer',
 				'tools'=>'required|min:5',
 				'steps'=>'required|min:10',
-				'files' =>'required|mimes:doc,docx,xls'
+				'files' =>'mimes:doc,docx,xls'
 
 			]);
 
@@ -189,4 +192,26 @@ class PraktikumController extends Controller {
 			return response("not ajax");
 		}
 	}
+
+
+	public function downloadFile($idPraktikum){
+
+		$praktikum = Praktikum::findOrFail($idPraktikum);
+		$praktikumTitle =$praktikum->title;
+		$filepraktikum = $praktikum->files;
+
+		$pathTofile = public_path().'/files/'.$filepraktikum;			//get the file location.
+		$fileExtension = \File::extension($pathTofile);				//get the file extension
+		if(\File::exists($pathTofile)){
+			return response()->download($pathTofile, $praktikumTitle.".".$fileExtension);
+		}
+		else{
+			return "File tidak terdapat dalam sistem";
+		}
+
+	}
+
+
+
+
 }

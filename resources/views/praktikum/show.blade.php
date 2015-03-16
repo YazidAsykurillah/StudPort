@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('pageTitle')
-	Edit Praktikum {{ $praktikum->title }}
+	{{ $praktikum->title }}
 @endsection
 
 @section('breadcrumb')
@@ -16,64 +16,46 @@
 
 
 @section('content')
-	
+	<div class="page-header">
+		<h3>{{ $praktikum->title }}</h3>
+		Materi  : {{$praktikum->materi->title }}
+	</div>
 	<div class="row">
-		<div class="col-md-12">
-			<div class="panel panel-default">
+		<div class="col-md-4">
+			<div class="panel panel-default" id="panel-detail">
 				<div class="panel-heading">
-					<strong>{{ $praktikum->title }}</strong>
-					
+					<strong class="panel-title">Alat dan Bahan</strong>
 				</div>
 				<div class="panel-body">
-					<div class="row">
-						<div class="col-md-3">
-							<span class="pull-right">Judul Praktikum : </span>
-						</div>
-						<div class="col-md-9">
-							{{ $praktikum->title }}
-						</div>
-					</div>
-					<p></p>
-					<div class="row">
-						<div class="col-md-3">
-							<span class="pull-right">Materi : </span>
-						</div>
-						<div class="col-md-9">
-							{{ $praktikum->materi->title }}
-						</div>
-					</div>
-					<p></p>
-					<div class="row">
-						<div class="col-md-3">
-							<span class="pull-right">Alat dan Bahan : </span>
-						</div>
-						<div class="col-md-9">
-							{!! nl2br($praktikum->tools) !!}
-						</div>
-					</div>
-					<p></p>
-					<div class="row">
-						<div class="col-md-3">
-							<span class="pull-right">Cara Kerja : </span>
-						</div>
-						<div class="col-md-9">
-							{!! nl2br($praktikum->steps) !!}
-						</div>
-					</div>
-					<p></p>
-					<div class="row">
-						<div class="col-md-3">
-							<span class="pull-right">File Pendukung : </span>
-						</div>
-						<div class="col-md-9">
-							@if(is_null($praktikum->files))
-								Tidak ada
-							@else
-								{{ $praktikum->files }}
-							@endif
-						</div>
-					</div>
-
+					{!! nl2br($praktikum->tools) !!}
+				</div>
+			</div>
+		</div>
+		<div class="col-md-5">
+			<div class="panel panel-default" id="panel-detail">
+				<div class="panel-heading">
+					<strong class="panel-title">Langkah Kerja</strong>
+				</div>
+				<div class="panel-body">
+					{!! nl2br($praktikum->steps) !!}
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="panel panel-default" id="panel-detail">
+				<div class="panel-heading">
+					<strong class="panel-title">File Pendukung</strong>
+				</div>
+				<div class="panel-body">
+					@if($praktikum->files)
+						<a href="{{ URL::to('downloadPraktikum/'.$praktikum->id) }}" class="btn btn-lg btn-block btn-primary">
+							<i class="glyphicon glyphicon-download-alt"></i> Download file
+						</a>
+					@else
+						<p class="alert alert-info">
+							<i class="glyphicon glyphicon-info-sign"></i>&nbsp;Tidak ada file
+						</p>
+					@endif
 				</div>
 			</div>
 		</div>

@@ -40,10 +40,12 @@ class MateriController extends Controller {
 		$this->validate($request,[
 
 				'title'=>'required|min:3',
+				'preface'=>'required|max:750|min:10',
 				'file' =>'required|mimes:doc,docx,xls'
 
 			]);
 		$title = $request->input('title');
+		$preface = $request->input('preface');
 		
 		$fileName = preg_replace('/\s+/','',$request->file('file')->getClientOriginalName());
 		$mt_rand = mt_rand();							//create a mt_rand to prevent duplication
@@ -52,6 +54,7 @@ class MateriController extends Controller {
 		$data = [
 			'title'=>$title,
 			'file'=>$fileToInsert,
+			'preface' => $preface,
 		];
 
 		$create = Materi::create($data);
@@ -79,7 +82,11 @@ class MateriController extends Controller {
 	 */
 	public function show($id)
 	{
-		//
+		$materi = Materi::findOrFail($id);
+		$praktikum = $materi->praktikum;
+		return View('materi.show')
+			->with('materi', $materi)
+			->with('praktikum', $praktikum);
 	}
 
 	/**

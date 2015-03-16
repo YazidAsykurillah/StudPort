@@ -32,10 +32,10 @@
 					<table class="table table-striped">
 						<thead>
 							<tr>
-								<th></th>
+								<th style="width:5%">#</th>
 								<th>Nama kuis</th>
 								<th>Jumlah Soal</th>								
-								<th>Aksi</th>								
+								<th style="text-align:center;">Aksi</th>								
 							</tr>
 						</thead>
 						<tbody>
@@ -47,11 +47,11 @@
 										<a href="{{ URL::to('kuis/'.$ku->id)}}">{{ $ku->title }}</a>
 									</td>
 									<td> {{ $ku->soal->count() }}</td>
-									<td>
-										<a href="{{ URL::to('kuis/'.$ku->id.'/edit') }}" class="btn btn-xs btn-info" title="Edit kuis {{ $ku->title }}">
+									<td style="text-align:center;">
+										<a href="{{ URL::to('kuis/'.$ku->id.'/edit') }}" class="btn btn-sm btn-info" title="Edit kuis {{ $ku->title }}">
 											<i class="glyphicon glyphicon-edit"></i>
 										</a>
-										<a href="#" class="btn btn-xs btn-danger" title="Hapus kuis {{ $ku->title }}" onClick="deleteKuis( {{$ku->id}} ); return false">
+										<a href="#" class="btn btn-sm btn-danger" title="Hapus kuis {{ $ku->title }}" onClick="deleteKuis( {{$ku->id}} ); return false">
 											<i class="glyphicon glyphicon-trash"></i>
 										</a>
 									</td>

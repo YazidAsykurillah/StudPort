@@ -32,10 +32,10 @@
 					<table class="table table-striped">
 						<thead>
 							<tr>
-								<th></th>
+								<th style="width:5%;">#</th>
 								<th>Nama Kelas</th>
 								<th>Jumlah Siswa</th>
-								<th style="text-align:right">Aksi</th>
+								<th style="text-align:right;">Aksi</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -48,15 +48,15 @@
 									</td>
 									<td>{{ $kel->user->where('isTeacher',0)->count() }}</td>
 									<td align="right">
-										<a href="{{ URL::to('kelas/'.$kel->id.'/edit')}}" class="btn btn-xs btn-success" id="btnEdit">
-											<i class="glyphicon glyphicon-edit"></i> Edit
+										<a href="{{ URL::to('kelas/'.$kel->id.'/edit')}}" class="btn btn-sm btn-success" id="btnEdit" title="Edit">
+											<i class="glyphicon glyphicon-edit"></i>
 										</a>
 									</td>
 									<td align="left">
 										{!! Form::open(['method'=>'delete','class'=>'form-inline', 'route'=>['kelas.destroy', $kel->id], 'id'=>'formDelete']) !!}
 											<input type="hidden" name="id" value="{{$kel->id}}">
-											<button type="submit" class="btn btn-xs btn-danger">
-												<i class="glyphicon glyphicon-remove"></i> Delete
+											<button type="submit" class="btn btn-sm btn-danger">
+												<i class="glyphicon glyphicon-remove"></i>
 											</button>
 										{!! Form::close() !!}
 									</td>

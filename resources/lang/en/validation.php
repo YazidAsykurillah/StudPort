@@ -86,21 +86,46 @@ return [
 	*/
 
 	'custom' => [
-		'attribute-name' => [
-			'rule-name' => 'custom-message',
+		'attribute-name' 	=> [
+			'rule-name' 	=> 'custom-message',
 		],
-		'name'=>[
-			'required' => 'Tidak boleh kosong'
-		],
-		'title'=>[
-			'required' => "Judul tidak boleh kosong"
+		'name' => [
+			'required' 		=> 'Tidak boleh kosong',
+			'unique' 		=> 'Sudah ada dalam sistem, silahkan ganti',
+			'min'			=>'Minimal :min karakter'
 		],
 		'objectives'=>[
-			'required'=>"Objektif idak boleh kosong"
+			'required'		=>"Objektif idak boleh kosong"
+		],
+		'preface'=>[
+			'required'		=> 'Kata pengantar tidak boleh kosong',
+			'min'			=>'Tidak boleh kurang dari 10 karakter'
+		],
+		'file'=>[
+			'required'		=>'File tidak boleh kosong',
+			'mimes'			=>'File harus bertipe doc,docx,xls,atau xlsx',
+		],
+		'title'=>[														
+			'required'		=> 'Judul tidak boleh kosong',
+			'min'			=>'Minimal :min karakter',
+			'unique'		=> 'Sudah ada dalam sistem, silahkan ganti',
+		],
+		'materi_id'=>[
+			'integer'		=>'Harus berupa integer',
+
 		],
 		'tools'=>[
-			'required'=>'Alat dan bahan tidak boleh kosong'
-		]
+			'required'		=>'Alat dan bahan tidak boleh kosong',
+			'min'			=>'Minimal :min karakter',
+		],
+		'steps'=>[
+			'required'		=>'Langkah kerja tidak boleh kosong',
+			'min'			=>'Minimal :min karakter',
+		],
+		'files'=>[
+			'mimes'			=>'File harus bertipe doc,docx,xls,atau xlsx',
+		],
+
 	],
 
 	/*

@@ -58,6 +58,8 @@ Route::get('createSoal/{idK}', ['uses'=>'SoalController@createSoal']);
 
 Route::get('downloadMateri/{idMateri}',['uses'=>'MateriController@downloadFile']);
 
+Route::get('downloadPraktikum/{idPraktikum}',['uses'=>'PraktikumController@downloadFile']);
+
 Route::get('dataTest', function(){
 	return response()->json(['name' => 'Abigail', 'state' => 'CA']);
 });

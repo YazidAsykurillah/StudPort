@@ -18,9 +18,9 @@
 @section('content')
 	
 	<div class="row">
-		<div class="col-md-12">
+		<div class="col-md-6">
 			<div class="page-header">
-			  	<h3>Tambah kelas baru <small>Silahkan tambahkan kelas baru</small></h3>
+			  	<h3>Tambah Kelas</h3>
 			</div>
 			{!! Form::open(['route'=>'kelas.store', 'class'=>'form-horizontal', 'role'=>'form']) !!}
 				<div class="form-group {{$errors->has('name')? 'has-error' : '' }}">

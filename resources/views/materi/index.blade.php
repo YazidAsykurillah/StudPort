@@ -21,7 +21,7 @@
 		<div class="col-md-12">
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					Daftar materi
+					<span class="panel-title"><strong>Daftar Materi</strong></span>
 					<div class="pull-right">
 						<a href="{{ URL::to('materi/create') }}" class="btn btn-xs btn-primary">
 							<i class="glyphicon glyphicon-plus"></i>&nbsp;Materi Baru
@@ -43,13 +43,17 @@
 								@foreach($materi as $mat)
 								<tr id="row_mat_{{ $mat->id }}">
 									<td></td>
-									<td>{{ $mat->title }}</td>
+									<td>
+										<a href="{{ URL::to('materi/'.$mat->id) }}">
+											{{ $mat->title }}
+										</a>
+									</td>
 									<td>{{ $mat->praktikum->count() }}</td>
 									<td style="text-align:center;">
-										<a href="{{ URL::to('downloadMateri/'.$mat->id) }}" class="btn btn-info" title="Download {{ $mat->title }}">
+										<a href="{{ URL::to('downloadMateri/'.$mat->id) }}" class="btn btn-sm btn-info" title="Download {{ $mat->title }}">
 											<i class="glyphicon glyphicon-download"></i>
 										</a>
-										<a href="#" class="btn btn-danger" title="Hapus materi {{ $mat->id }}" onClick="deleteMat( {{$mat->id }} ); return false">
+										<a href="#" class="btn btn-sm btn-danger" title="Hapus materi {{ $mat->id }}" onClick="deleteMat( {{$mat->id }} ); return false">
 											<i class="glyphicon glyphicon-trash"></i>
 										</a>
 									</td>

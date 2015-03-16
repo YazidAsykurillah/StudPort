@@ -44,10 +44,10 @@
 										<td>{{ $sis->email }}</td>
 										<td>{{ $sis->kelas->name }}</td>
 										<td align="center">
-											<a href="#" class="btn btn-xs btn-danger" title="Hapus" onClick="deleteUser( {{$sis->id}} ); return false">
+											<a href="#" class="btn btn-sm btn-danger" title="Hapus" onClick="deleteUser( {{$sis->id}} ); return false">
 												<i class="glyphicon glyphicon-trash"></i>
 											</a>
-											<a href="#" class="btn btn-xs btn-info" title="Reset password">
+											<a href="#" class="btn btn-sm btn-info" title="Reset password">
 												<i class="glyphicon glyphicon-cog"></i>
 											</a>
 										</td>

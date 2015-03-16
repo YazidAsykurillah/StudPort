@@ -8,7 +8,7 @@ class Materi extends Model {
 
 	protected $table = 'materi';
 
-	protected $fillable = ['title', 'file'];
+	protected $fillable = ['title', 'preface', 'file'];
 
 
 	public function praktikum(){				//relationship with praktikum.
