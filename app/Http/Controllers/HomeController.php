@@ -1,4 +1,11 @@
 <?php namespace App\Http\Controllers;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Pagination\LengthAwarePaginator;
+use App\User;
+use App\Kuis;
+use App\Kelas;
+use App\Materi;
+use App\Praktikum;
 
 class HomeController extends Controller {
 
@@ -30,7 +37,22 @@ class HomeController extends Controller {
 	 */
 	public function index()
 	{
-		return view('home');
+		$user_id = \Auth::user()->id;
+		$user = User::findOrFail($user_id);
+		$kuis = $user->kuis;
+
+		$daftarKelas = Kelas::take(5)->get();
+		$daftarMateri = Materi::take(5)->get();
+		$daftarKuis = Kuis::take(5)->get();
+
+
+		return view('home')
+			->with('user', $user)
+			->with('kuis', $kuis)
+			->with('daftarKelas', $daftarKelas)
+			->with('daftarMateri', $daftarMateri)
+			->with('daftarKuis', $daftarKuis)
+			;
 	}
 	
 

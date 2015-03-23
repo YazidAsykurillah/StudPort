@@ -9,26 +9,12 @@ use App\Soal;
 
 class SoalController extends Controller {
 
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
-	
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
-	public function create(Request $request)
-	{
-		
-		
+	public function __construct(){
 
-		
-	
+		$this->middleware('teacher');
 
 	}
+
 
 	/**
 	 * Store a newly created resource in storage.
@@ -40,10 +26,10 @@ class SoalController extends Controller {
 		$this->validate($request,[
 
 			'soal'=>'required|min:5',
-			'opsiA'=>'required',
-			'opsiB'=>'required',
-			'opsiC'=>'required',
-			'opsiD'=>'required',
+			'opsiA'=>'required|different:opsiB,opsiC,opsiD',
+			'opsiB'=>'required|different:opsiA,opsiC,opsiD',
+			'opsiC'=>'required|different:opsiA,opsiB,opsiD',
+			'opsiD'=>'required|different:opsiA,opsiB,opsiC',
 			'opsiBenar'=>'required',
 			'kuis_id'=>'required|integer',
 
@@ -51,7 +37,7 @@ class SoalController extends Controller {
 		$kuis = Kuis::find($request->kuis_id);
 
 		Soal::create($request->all());
-		return Redirect('kuis')->with('successMessage', " Berhasil menambahkan soal pada $kuis->title");
+		return Redirect('kuis/'.$request->kuis_id)->with('successMessage', " Berhasil menambahkan soal pada $kuis->title");
 	}
 
 	/**
@@ -105,6 +91,18 @@ class SoalController extends Controller {
 		$kuis = Kuis::findOrFail($kuis_id);
 
 		return View('soal.create')->with('kuis',$kuis);
+	}
+
+
+	public function hapusSoal(Request $request){
+
+		if($request->ajax()){
+
+			$soal = Soal::findOrFail($request->id);
+			$soal->delete();
+			return response('deleted');
+
+		}
 	}
 
 }

@@ -6,6 +6,7 @@
 
 		{!! HTML::style('css/bootstrap.css') !!}
 		{!! HTML::style('css/mycss.css') !!}
+		{!! HTML::style('css/jquery.countdown.css') !!}
 		
 	</head>
 	<body>
@@ -53,7 +54,13 @@
 			    	@else
 			    	<ul class="nav navbar-nav">
 			        	<li>
-			        		<a href="{{ URL::to('#') }}">Kuis</a>
+			        		<a href="{{ URL::to('getMateri') }}">Materi</a>	
+			        	</li>
+			        	<li>
+			        		<a href="{{ URL::to('getPraktikum') }}">Praktikum</a>
+			        	</li>
+			        	<li>
+			        		<a href="{{ URL::to('getKuis') }}">Kuis</a>
 			        	</li>
 			    	</ul>
 			    	@endif
@@ -76,17 +83,12 @@
 			     <!-- Navbar untuk user yang bukan teacher -->
 			    @else
 			     	<ul class="nav navbar-nav navbar-right">
+			        	
 			        	<li>
-			        		<a href="#">About</a>
+			        		<a href="{{ URL::to('auth/login') }}"> Masuk</a>
 			        	</li>
 			        	<li>
-			        		<a href="#">Contact</a>
-			        	</li>
-			        	<li>
-			        		<a href="{{ URL::to('auth/login') }}">Login</a>
-			        	</li>
-			        	<li>
-			        		<a href="{{ URL::to('auth/register') }}">Register</a>
+			        		<a href="{{ URL::to('auth/register') }}">Daftar</a>
 			        	</li>
 			      	</ul>
 			     @endif

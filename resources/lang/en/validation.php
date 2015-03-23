@@ -31,7 +31,7 @@ return [
 	"confirmed"            => "The :attribute confirmation does not match.",
 	"date"                 => "The :attribute is not a valid date.",
 	"date_format"          => "The :attribute does not match the format :format.",
-	"different"            => "The :attribute and :other must be different.",
+	"different"            => ":attribute dan :other harus beda.",
 	"digits"               => "The :attribute must be :digits digits.",
 	"digits_between"       => "The :attribute must be between :min and :max digits.",
 	"email"                => "The :attribute must be a valid email address.",
@@ -39,7 +39,7 @@ return [
 	"exists"               => "The selected :attribute is invalid.",
 	"image"                => "The :attribute must be an image.",
 	"in"                   => "The selected :attribute is invalid.",
-	"integer"              => "The :attribute must be an integer.",
+	"integer"              => ":attribute harus berupa integer.",
 	"ip"                   => "The :attribute must be a valid IP address.",
 	"max"                  => [
 		"numeric" => "The :attribute may not be greater than :max.",
@@ -57,7 +57,7 @@ return [
 	"not_in"               => "The selected :attribute is invalid.",
 	"numeric"              => "The :attribute must be a number.",
 	"regex"                => "The :attribute format is invalid.",
-	"required"             => "The :attribute field is required.",
+	"required"             => ":attribute tidak boleh kosong.",
 	"required_if"          => "The :attribute field is required when :other is :value.",
 	"required_with"        => "The :attribute field is required when :values is present.",
 	"required_with_all"    => "The :attribute field is required when :values is present.",
@@ -95,7 +95,7 @@ return [
 			'min'			=>'Minimal :min karakter'
 		],
 		'objectives'=>[
-			'required'		=>"Objektif idak boleh kosong"
+			'required'		=>"Objektif tidak boleh kosong"
 		],
 		'preface'=>[
 			'required'		=> 'Kata pengantar tidak boleh kosong',

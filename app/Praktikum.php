@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Eloquent\Model;
 use App\Materi;
+use App\User;
 class Praktikum extends Model {
 
 	protected $table = 'praktikum';
@@ -13,5 +14,9 @@ class Praktikum extends Model {
 		return $this->belongsTo('App\Materi');
 	}
 	
+	public function user(){
+		
+		return $this->belongsToMany('App\User')->withPivot('foto');
+	}
 
 }

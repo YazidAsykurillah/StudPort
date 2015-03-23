@@ -6,18 +6,21 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Praktikum;
 use App\Materi;
+use App\User;
 
 class PraktikumController extends Controller {
 
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
+	
+	public function __construct(){
+
+		$this->middleware('teacher');
+
+	}
+
 	public function index()
 	{
-		$praktikum = Praktikum::all();
-
+		$praktikum = Praktikum::paginate(10);
+		$praktikum->setPath('');
 		return View('praktikum.index')
 			->with('praktikum', $praktikum);
 
@@ -95,7 +98,10 @@ class PraktikumController extends Controller {
 	public function show($id)
 	{
 		$praktikum = Praktikum::findOrFail($id);
-		return View('praktikum.show')->with('praktikum', $praktikum);
+		$siswa = $praktikum->user;
+		return View('praktikum.show')
+			->with('praktikum', $praktikum)
+			->with('siswa', $siswa);
 	}
 
 	/**

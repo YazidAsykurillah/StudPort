@@ -14,11 +14,16 @@ class KelasController extends Controller {
 	 * @return Response
 	 */
 
+	public function __construct(){
+
+		$this->middleware('teacher');
+
+	}
 	
 	public function index()
 	{
-		$kelas = Kelas::all();
-		
+		$kelas = Kelas::paginate(10);
+		$kelas->setPath('');
 		return View('kelas.index')->with('kelas', $kelas);
 	}
 

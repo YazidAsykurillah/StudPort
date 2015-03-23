@@ -8,7 +8,7 @@ class Kuis extends Model {
 	
 	protected $table = 'kuis';
 
-	protected $fillable = ['title', 'objectives', 'displaying'];
+	protected $fillable = ['title', 'objectives', 'displaying', 'timer'];
 
 	public function user(){						//M2M relationship with user.
 

@@ -8,14 +8,17 @@ use App\Kuis;
 
 class KuisController extends Controller {
 
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
+
+	public function __construct(){
+
+		$this->middleware('teacher');
+
+	}
+
 	public function index()
 	{
-		$kuis = Kuis::all();
+		$kuis = Kuis::paginate(10);
+		$kuis->setPath('');
 		
 		return View('kuis.index')->with('kuis', $kuis);
 	}
@@ -39,7 +42,9 @@ class KuisController extends Controller {
 	{
 		$this->validate($request,[
 
-				'title'=>'required|unique:kuis,title|min:5'
+				'title'=>'required|unique:kuis,title|min:5',
+				'objectives'=>'required|min:5',
+				'timer'=>'required|integer'
 		]);
 
 		Kuis::create($request->all());
@@ -82,7 +87,8 @@ class KuisController extends Controller {
 		$this->validate($request,
 		 	[
 		 		'title' => 'required|unique:kuis,title,'.$id.'',
-		 		'objectives'=>'required|min:5'
+		 		'objectives'=>'required|min:5',
+		 		'timer'	=>'required|integer',
 	    	]
 	    );
 		$kelas = Kuis::whereId($id)->first();

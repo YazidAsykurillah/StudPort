@@ -8,7 +8,7 @@
 	
 	<ol class="breadcrumb">
 		<li><a href="{{ URL::to('home') }}">Home</a></li>
-		<li><a href="{{ URL::to('kuis') }}">Kuis</a></li>
+		<li><a href="{{ URL::to('getKuis') }}">Kuis</a></li>
 		<li class="active">Daftar kuis</li>
 	</ol>
 	
@@ -21,12 +21,7 @@
 		<div class="col-md-12">
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					Daftar kuis
-					<div class="pull-right">
-						<a href="{{ URL::to('kuis/create') }}" class="btn btn-xs btn-primary">
-							<i class="glyphicon glyphicon-plus"></i>&nbsp;Kuis Baru
-						</a>
-					</div>
+					<span class="panel-title"><strong>Daftar Kuis</strong></span>
 				</div>
 				<div class="panel-body">
 					<table class="table table-striped">
@@ -36,7 +31,7 @@
 								<th>Nama Kuis</th>
 								<th>Jumlah Soal</th>								
 								<th>Waktu (menit)</th>								
-								<th style="text-align:center;">Aksi</th>								
+								<th style="text-align:center;">Kerjakan</th>								
 							</tr>
 						</thead>
 						<tbody>
@@ -45,16 +40,13 @@
 								<tr id="rowKuis_{{$ku->id}}">
 									<td></td>
 									<td>
-										<a href="{{ URL::to('kuis/'.$ku->id)}}">{{ $ku->title }}</a>
+										{{ $ku->title }}
 									</td>
 									<td> {{ $ku->soal->count() }}</td>
 									<td> {{ $ku->timer }}</td>
 									<td style="text-align:center;">
-										<a href="{{ URL::to('kuis/'.$ku->id.'/edit') }}" class="btn btn-sm btn-info" title="Edit kuis {{ $ku->title }}">
+										<a href="{{ URL::to('viewKuis/'.$ku->id) }}" class="btn btn-sm btn-info" title="Kerjakan {{ $ku->title }}">
 											<i class="glyphicon glyphicon-edit"></i>
-										</a>
-										<a href="#" class="btn btn-sm btn-danger" title="Hapus kuis {{ $ku->title }}" onClick="deleteKuis( {{$ku->id}} ); return false">
-											<i class="glyphicon glyphicon-trash"></i>
 										</a>
 									</td>
 									
@@ -67,7 +59,7 @@
 							@endif
 						</tbody>
 					</table>
-					<!-- Pagination link -->
+					<!-- Pagination links -->
 					{!! $kuis->render() !!}
 				</div>
 			</div>

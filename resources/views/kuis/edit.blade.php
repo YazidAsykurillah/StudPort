@@ -39,6 +39,15 @@
 								{!! $errors->first('objectives', '<span class="help-block">:message</span>') !!}
 							</div>
 						</div>
+
+						<div class="form-group {{$errors->has('timer')? 'has-error' : '' }}">
+							<label class="col-md-4 control-label">Waktu (menit)</label>
+							<div class="col-md-6">
+								{!! Form::text('timer',null,['class'=>'form-control']) !!}
+								{!! $errors->first('timer', '<span class="help-block">:message</span>') !!}
+							</div>
+						</div>
+
 						<div class="form-group">
 							<label class="col-md-4 control-label"></label>
 							<div class="col-md-6">

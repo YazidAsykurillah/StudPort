@@ -40,7 +40,9 @@
 								@foreach($siswa as $sis)
 									<tr id="rowSiswa_{{$sis->id}}">
 										<td></td>
-										<td>{{ $sis->first_name." ".$sis->last_name }}</td>
+										<td>
+											<a href="{{ URL::to('user/'.$sis->id) }}">{{ $sis->first_name." ".$sis->last_name }}</a>
+										</td>
 										<td>{{ $sis->email }}</td>
 										<td>{{ $sis->kelas->name }}</td>
 										<td align="center">
@@ -60,7 +62,7 @@
 							@endif
 						</tbody>
 					</table>
-
+					{!! $siswa->render() !!}
 				</div>
 			</div>
 		</div>

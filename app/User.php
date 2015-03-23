@@ -7,6 +7,7 @@ use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 use App\Kelas;
 use App\Kuis;
+use App\Praktikum;
 class User extends Model implements AuthenticatableContract, CanResetPasswordContract {
 
 	use Authenticatable, CanResetPassword;
@@ -45,5 +46,10 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	}
 
 
+	public function praktikum(){
+
+		return $this->belongsToMany('App\Praktikum')->withPivot('foto');
+
+	}
 
 }

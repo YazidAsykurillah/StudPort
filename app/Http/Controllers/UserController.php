@@ -8,6 +8,13 @@ use App\User;
 
 class UserController extends Controller {
 
+
+	public function __construct(){
+
+		$this->middleware('teacher');
+
+	}
+	
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -15,8 +22,8 @@ class UserController extends Controller {
 	 */
 	public function index()
 	{
-		$siswa = User::where('isTeacher','=',0)->where('kelas_id','!=',0)->get();
-		//print_r($siswa);
+		$siswa = User::where('isTeacher','=',0)->paginate(10);
+		$siswa->setPath('');
 		return View('user.index')->with('siswa', $siswa);
 	}
 

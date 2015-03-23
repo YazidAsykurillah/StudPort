@@ -60,6 +60,29 @@
 			</div>
 		</div>
 	</div>
+	<div class="row">
+		<div class="page-header">
+			<h4>Foto Praktikum</h4>
+		</div>
+		@if(count($siswa))
+			@foreach($siswa as $sis)
+				<div class="col-sm-6 col-md-3">
+			      	<div class="thumbnail">
+			         	 {!! HTML::image('images/'.$sis->pivot->foto, $sis->first_name, array('style'=>'width:300px;height:200px;')) !!}
+			      	</div>
+				     <div class="caption">
+				        <h5>{{ $sis->first_name." ".$sis->last_name }}</h5>
+				    </div>
+		  		</div>
+			@endforeach
+		@else
+			<p class="alert alert-info">Belum ada siswa yang mengirimkan foto praktikum</p>
+		@endif
+		
+		
+
+
+	</div>
 
 @endsection
 
@@ -68,6 +91,6 @@
 <script type="text/javascript">
 		
 		
-	</script>
+</script>
 	
 @endsection

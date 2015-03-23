@@ -3,15 +3,39 @@
 	StudPort
 @stop
 
-@section('content')
 
-	<div class="jumbotron">
-  		<h1>StudPort</h1>
-  		<p>This is a web application I am going to build using Laravel 5 framework</p>
-  		<p>I'm currently setting up the workflow of the application</p>
-  		<p>Have some ideas to share?</p>
-  		<p><a class="btn btn-primary btn-lg" href="https://github.com/YazidAsykurillah/StudPort" role="button">Checkout the repository on github</a></p>
+@section('content')
+	
+	<div class="banner">
+	    <ul>
+	        <li style="background-image: url('images/water_dust.jpg'); background-repeat:repeat-x;">
+				<h1>"Give and Get"</h1>
+				<p>Guru mengunggah materi, modul dan petunjuk praktikum</p>
+				<p>Siswa dapat dengan mudah mengunduh bahan pembelajaran</p>
+			</li>
+			<li style="background-image: url('images/water_dust.jpg'); background-repeat:repeat-x;">
+				<h1>"Online Quiz"</h1>
+				<p>Guru dapat membuat kuis</p>
+				<p>Siswa dapat mengerjakan kuis secara <i>online</i></p>
+			</li>
+			<li style="background-image: url('images/water_dust.jpg'); background-repeat:repeat-x;">
+				<h1>"Progress Monitoring"</h1>
+				<p>Guru dapat memantau perkembangan tiap siswa</p>
+				<p>Siswa dapat dengan mudah melihat perkembangan diri</p>
+			</li>
+	        
+	    </ul>
 	</div>
+	<div class="prevNextBtn">
+		<a href="#" class="unslider-arrow prev">&laquo;</a>
+		<a href="#" class="unslider-arrow next">&raquo;</a>
+	</div>
+	
+		
+	
+	<!-- <div class="jumbotron">
+  		{!! HTML::image('images/laptop.jpg', 'Studport welcome image', ['class' => 'img-responsive']) !!}
+	</div> -->
 	<div class="page-header">
 	  	<h1> Basic Ideas <small>( basic workflow of the application)</small></h1>
 	  	<div class="col-md-4">
@@ -55,3 +79,27 @@
 	</div>
 	
 @stop
+
+@section('necessaryScripts')
+
+	{!! HTML::script('js/unislider.min.js') !!}
+
+	<script type="text/javascript">
+		$(function() {
+
+			var unslider = $('.banner').unslider({
+				fluid: true,
+				dots: true,
+				speed: 500
+			});
+
+		    $('.unslider-arrow').click(function() {
+		        var fn = this.className.split(' ')[1];
+		        //  Either do unslider.data('unslider').next() or .prev() depending on the className
+		        unslider.data('unslider')[fn]();
+		        return false;
+		    });
+		});
+	</script>
+
+@endsection

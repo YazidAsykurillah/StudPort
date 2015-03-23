@@ -34,7 +34,7 @@
 					</div>
 
 					<div class="form-group {{$errors->has('opsiA')? 'has-error' : '' }}">
-						<label class="col-md-4 control-label">opsi A</label>
+						<label class="col-md-4 control-label">Opsi A</label>
 						<div class="col-md-6">
 							{!! Form::text('opsiA',null,['class'=>'form-control']) !!}
 							{!! $errors->first('opsiA', '<span class="help-block">:message</span>') !!}
@@ -42,7 +42,7 @@
 					</div>
 
 					<div class="form-group {{$errors->has('opsiB')? 'has-error' : '' }}">
-						<label class="col-md-4 control-label">opsi B</label>
+						<label class="col-md-4 control-label">Opsi B</label>
 						<div class="col-md-6">
 							{!! Form::text('opsiB',null,['class'=>'form-control']) !!}
 							{!! $errors->first('opsiB', '<span class="help-block">:message</span>') !!}
@@ -50,7 +50,7 @@
 					</div>
 
 					<div class="form-group {{$errors->has('opsiC')? 'has-error' : '' }}">
-						<label class="col-md-4 control-label">opsi C</label>
+						<label class="col-md-4 control-label">Opsi C</label>
 						<div class="col-md-6">
 							{!! Form::text('opsiC',null,['class'=>'form-control']) !!}
 							{!! $errors->first('opsiC', '<span class="help-block">:message</span>') !!}
@@ -58,7 +58,7 @@
 					</div>
 
 					<div class="form-group {{$errors->has('opsiD')? 'has-error' : '' }}">
-						<label class="col-md-4 control-label">opsi D</label>
+						<label class="col-md-4 control-label">Opsi D</label>
 						<div class="col-md-6">
 							{!! Form::text('opsiD',null,['class'=>'form-control']) !!}
 							{!! $errors->first('opsiD', '<span class="help-block">:message</span>') !!}
@@ -66,7 +66,7 @@
 					</div>
 
 					<div class="form-group {{$errors->has('opsiBenar')? 'has-error' : '' }}">
-						<label class="col-md-4 control-label">opsi Benar</label>
+						<label class="col-md-4 control-label">Opsi Benar</label>
 						<div class="col-md-6">
 							<select name="opsiBenar" class="form-control">
 								<option value="">Pilih Opsi Benar</option>

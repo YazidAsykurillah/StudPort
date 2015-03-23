@@ -78,7 +78,8 @@
 						@endif
 						</tbody>
 					</table>
-
+					<!-- Pagination link -->
+					{!! $praktikum->render() !!}
 				</div>
 			</div>
 		</div>

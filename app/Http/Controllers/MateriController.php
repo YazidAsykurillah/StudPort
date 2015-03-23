@@ -13,9 +13,18 @@ class MateriController extends Controller {
 	 *
 	 * @return Response
 	 */
+
+	public function __construct(){
+
+		$this->middleware('teacher');
+
+	}
+
 	public function index()
 	{
-		$materi = Materi::all();
+
+		$materi = Materi::paginate(10);
+		$materi->setPath('');
 		return View('materi.index')->with('materi', $materi);
 	}
 
@@ -40,7 +49,7 @@ class MateriController extends Controller {
 		$this->validate($request,[
 
 				'title'=>'required|min:3',
-				'preface'=>'required|max:750|min:10',
+				'preface'=>'required|max:1000|min:10',
 				'file' =>'required|mimes:doc,docx,xls'
 
 			]);

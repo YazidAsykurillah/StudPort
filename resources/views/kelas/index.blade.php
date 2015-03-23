@@ -67,9 +67,11 @@
 									<td colspan="4">Belum ada kelas terdaftar,  silahkan buat dulu</td>
 								</tr>
 							@endif
+							
 						</tbody>
-					</table>
 
+					</table>
+					{!! $kelas->render() !!}
 				</div>
 			</div>
 		</div>
